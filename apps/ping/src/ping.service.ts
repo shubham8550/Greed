@@ -1,8 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { COMMAND_REGISTRY_EVENT } from '@app/common/constants';
+import { Inject, Injectable } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
 
 @Injectable()
 export class PingService {
-  getHello(): string {
-    return 'Hello World!';
+  constructor(@Inject('PING_SERVICE') private client: ClientProxy) {}
+
+  registerCommand() {
+    this.client.emit(COMMAND_REGISTRY_EVENT, {
+      alias: 'ping',
+      callname: 'ping',
+    });
   }
+  //Todo
+  // commandHandler(msg: any) {
+  //    { text: 'pong' };
+  // }
 }
