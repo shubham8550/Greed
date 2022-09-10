@@ -1,5 +1,5 @@
-//export { Logger } from '@nestjs/common';
-
+import { Logger } from '@nestjs/common';
+export const logger: Logger = new Logger();
 //server stuff
 export const NATS_SERVER_URL = 'nats://test.sbserver.ml:4222';
 //EVENT names
