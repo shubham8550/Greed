@@ -17,4 +17,11 @@ export class GlobalService {
 export interface CommandRegType {
   alias: string;
   callname: string;
+  platforms: (keyof typeof platforms)[];
+}
+export enum platforms {
+  whatsapp,
+  discord,
+  telegram,
+  all,
 }

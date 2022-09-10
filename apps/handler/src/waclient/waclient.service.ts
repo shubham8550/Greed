@@ -7,6 +7,6 @@ export class WaclientService {
   constructor(@Inject('WACLIENT_SERVICE') private client: ClientProxy) {}
   /* This botBootstrap executed first | bot init */
   async botBootstrap() {
-    logger.log('BOT IS ONLINE');
+    logger.log('Bot Online', 'Whatsapp');
   }
 }

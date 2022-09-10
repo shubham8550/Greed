@@ -4,9 +4,12 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { WaclientModule } from './waclient/waclient.module';
+import { TelegramModule } from './telegram/telegram.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
+    EventEmitterModule.forRoot(),
     ClientsModule.register([
       {
         name: 'HANDLER_SERVICE',
@@ -17,6 +20,7 @@ import { WaclientModule } from './waclient/waclient.module';
       },
     ]),
     WaclientModule,
+    TelegramModule,
   ],
   controllers: [AppController],
   providers: [AppService],

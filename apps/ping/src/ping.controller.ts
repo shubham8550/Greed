@@ -23,8 +23,10 @@ export class PingController implements OnModuleInit {
   }
 
   //todo make it queue thingy
-  // @MessagePattern('ping')
-  // commandHandler(@Payload() msg: any) {
-  //   this.pingService.commandHandler(msg);
-  // }
+  @MessagePattern('ping')
+  commandHandler(@Payload() msg: any) {
+    console.log('hiiii');
+
+    this.pingService.commandHandler(msg);
+  }
 }
