@@ -1,6 +1,6 @@
 project...
 
-![cover.png](assets\logo\cover.png)
+![cover.png](assets/logo/cover.png)
 
 <p align="center">An over-engineered all-in-one bot framewok for building efficient and scalable bots.</p>
 
