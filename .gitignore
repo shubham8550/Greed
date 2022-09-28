@@ -17,7 +17,8 @@ lerna-debug.log*
 # Tests
 /coverage
 /.nyc_output
-
+# DB files
+db.sqlite
 # IDEs and editors
 /.idea
 .project
@@ -36,3 +37,4 @@ lerna-debug.log*
 
 #envs
 /baileys_auth_info
+.env

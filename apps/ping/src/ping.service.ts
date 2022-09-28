@@ -19,4 +19,6 @@ export class PingService {
   commandHandler(msg: any) {
     console.log(msg);
   }
+
+  getMockWhatsappClient() {} //monkeypack and stuff
 }
