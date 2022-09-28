@@ -1,4 +1,4 @@
-import { logger, TELEGRAM_BOT_TOKE } from '@app/common/constants';
+import { logger } from '@app/common/constants';
 import { CommandRegType, GlobalService } from '@app/common/globals';
 import { Inject, Injectable } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
@@ -20,7 +20,7 @@ export class TelegramService {
     @Inject('TELEGRAM_SERVICE') private microServiceClient: ClientProxy,
   ) {}
   async botBootstrap() {
-    this.client = new TelegrafClient(TELEGRAM_BOT_TOKE);
+    this.client = new TelegrafClient(process.env.TELEGRAM_BOT_TOKEN);
     this.client.start((ctx) => ctx.reply('Hii This is sample Help - ping'));
 
     logger.log('Bot Online', 'Telegram');

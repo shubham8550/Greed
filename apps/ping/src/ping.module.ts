@@ -1,17 +1,18 @@
-import { NATS_SERVER_URL } from '@app/common/constants';
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { PingController } from './ping.controller';
 import { PingService } from './ping.service';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     ClientsModule.register([
       {
         name: 'PING_SERVICE',
         transport: Transport.NATS,
         options: {
-          servers: [NATS_SERVER_URL],
+          servers: [process.env.NATS_SERVER_URL],
         },
       },
     ]),

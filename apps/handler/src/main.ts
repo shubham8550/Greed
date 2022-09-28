@@ -1,4 +1,4 @@
-import { COMMAND_REGISTRY_EVENT, NATS_SERVER_URL } from '@app/common/constants';
+import { COMMAND_REGISTRY_EVENT } from '@app/common/constants';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { AppModule } from './app.module';
@@ -9,7 +9,7 @@ async function bootstrap() {
     {
       transport: Transport.NATS,
       options: {
-        servers: [NATS_SERVER_URL],
+        servers: [process.env.NATS_SERVER_URL],
         //queue: COMMAND_REGISTRY_EVENT,
       },
     },

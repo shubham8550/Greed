@@ -1,4 +1,3 @@
-import { NATS_SERVER_URL } from '@app/common/constants';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { PingModule } from './ping.module';
@@ -9,7 +8,7 @@ async function bootstrap() {
     {
       transport: Transport.NATS,
       options: {
-        servers: [NATS_SERVER_URL],
+        servers: [process.env.NATS_SERVER_URL],
       },
     },
   );

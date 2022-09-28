@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TelegramService } from './telegram.service';
 import { TelegramController } from './telegram.controller';
-import { NATS_SERVER_URL } from '@app/common/constants';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
@@ -11,7 +10,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'TELEGRAM_SERVICE',
         transport: Transport.NATS,
         options: {
-          servers: [NATS_SERVER_URL],
+          servers: [process.env.NATS_SERVER_URL],
         },
       },
     ]),

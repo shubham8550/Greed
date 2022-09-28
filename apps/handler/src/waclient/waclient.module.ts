@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { WaclientService } from './waclient.service';
 import { WaclientController } from './waclient.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { NATS_SERVER_URL } from '@app/common/constants';
 
 @Module({
   imports: [
@@ -11,7 +10,7 @@ import { NATS_SERVER_URL } from '@app/common/constants';
         name: 'WACLIENT_SERVICE',
         transport: Transport.NATS,
         options: {
-          servers: [NATS_SERVER_URL],
+          servers: [process.env.NATS_SERVER_URL],
         },
       },
     ]),
